@@ -7,10 +7,12 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   const routes = [
-    { id: 1, name: "Home", link: "/home" },
-    { id: 2, name: "Shop", link: "/shop" },
-    { id: 3, name: "Deals", link: "/deals" },
-    { id: 4, name: "Coupons", link: "/coupons" },
+    { id: 1, name: "Home", link: "/" },
+    { id: 2, name: "Services", link: "/services" },
+    { id: 3, name: "Blogs", link: "/blogs" },
+    { id: 4, name: "Abouts", link: "/About" },
+    
+  
 
   ];
 
@@ -21,8 +23,8 @@ const Navbar = () => {
           {open ? <XIcon></XIcon> : <MenuIcon></MenuIcon>}
         </div>
         <ul
-          className={`md:flex md:justify-end justify-center absolute md:static text-white bg-red-800 md:p-4  md:w-full duration-500 ease-in ${
-            open ? "top-15" : "top-[-220px]"
+          className={`md:flex md:justify-end justify-center  h-full absolute md:static text-white bg-red-800 md:p-4  md:w-full duration-500 ease-in ${
+            open ? "top-15" : "top-[-1000px]"
           }`}
         >
           {routes.map((route) => (
