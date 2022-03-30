@@ -11,7 +11,7 @@ const Navbar = () => {
     { id: 2, name: "Shop", link: "/shop" },
     { id: 3, name: "Deals", link: "/deals" },
     { id: 4, name: "Coupons", link: "/coupons" },
-    { id: 4, name: "Contact", link: "/contact" },
+
   ];
 
   return (
