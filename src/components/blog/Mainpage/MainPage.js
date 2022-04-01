@@ -2,35 +2,37 @@ import React, { useEffect, useState } from "react";
 import BlogCard from "../BlogCard";
 import "./style.css";
 import "./activebtn.css";
+import useBlogs from "../../../Hooks/useBlogs";
 
 const MainPage = () => {
-  const [blogs, SetBlogs] = useState([]);
   const [DisplayBlog, SetDisplayBlog] = useState([]);
+  const [blogs, SetBlogs] = useBlogs(SetDisplayBlog);
+
   let start = 0;
-  useEffect(() => {
-    fetch("blogs.JSON").then(async (response) => {
-      try {
-        const data = await response.json();
-        // console.log("response data?", data);
-        SetBlogs(data);
-        SetDisplayBlog(data.slice(0, 3));
-      } catch (error) {
-        console.log("Error happened here!");
-        console.error(error);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   fetch("blogs.JSON").then(async (response) => {
+  //     try {
+  //       const data = await response.json();
+  //       // console.log("response data?", data);
+  //       SetBlogs(data);
+  //       SetDisplayBlog(data.slice(0, 3));
+  //     } catch (error) {
+  //       console.log("Error happened here!");
+  //       console.error(error);
+  //     }
+  //   });
+  // }, []);
 
   const setBtn = (BtnsID, index) => {
-    if(index ===1){
+    if (index === 1) {
       start = index - 1;
-    }else{
-      start = ( 3 * index) - 3;
+    } else {
+      start = 3 * index - 3;
     }
-    
-    SetDisplayBlog(blogs.slice(start, start+3));
+
+    SetDisplayBlog(blogs.slice(start, start + 3));
     console.log(start, DisplayBlog);
-    if(start > blogs.length - 1){
+    if (start > blogs.length - 1) {
       alert("No result Found");
       // setBtn('myDIV', 1);
     }
@@ -65,12 +67,22 @@ const MainPage = () => {
         ))}
       </section>
       <section id="myDIV">
-      <button className="btn active" onClick={()=>setBtn('myDIV', 1)}>1</button>
-      <button className="btn" onClick={()=>setBtn('myDIV', 2)}>2</button>
-      <button className="btn" onClick={()=>setBtn('myDIV', 3)}>3</button>
-      <button className="btn" onClick={()=>setBtn('myDIV', 4)}>4</button>
-      <button className="btn" onClick={()=>setBtn('myDIV', 5)}>5</button>
-    </section> 
+        <button className="btn active" onClick={() => setBtn("myDIV", 1)}>
+          1
+        </button>
+        <button className="btn" onClick={() => setBtn("myDIV", 2)}>
+          2
+        </button>
+        <button className="btn" onClick={() => setBtn("myDIV", 3)}>
+          3
+        </button>
+        <button className="btn" onClick={() => setBtn("myDIV", 4)}>
+          4
+        </button>
+        <button className="btn" onClick={() => setBtn("myDIV", 5)}>
+          5
+        </button>
+      </section>
     </>
   );
 };
