@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import Link from "../Link/Link";
+
 import { MenuIcon, XIcon } from "@heroicons/react/solid";
 import './navbar.css'
+import LinkCom from "../Link/Link";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -28,7 +29,7 @@ const Navbar = () => {
           }`}
         >
           {routes.map((route) => (
-            <Link key={route.id} route={route}></Link>
+            <LinkCom key={route.id} route={route} setOpen={setOpen} open={open}></LinkCom>
           ))}
         </ul>
       </nav>
