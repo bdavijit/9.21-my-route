@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const BlogCard = ({key , blog }) => {
-  const {id, title, detail, image } = blog;
+const BlogCard = (props) => {
+  const {id, title, detail, image } = props.blog;
 
   const navigate = useNavigate();
   const showBlogDetail = () =>{
-    navigate('/blogs/'+ id);
+    navigate('/blog/'+ id);
 }
   // console.log(blog);
   return (

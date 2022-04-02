@@ -3,12 +3,14 @@ import BlogCard from "../BlogCard";
 import "./style.css";
 import "./activebtn.css";
 import useBlogs from "../../../Hooks/useBlogs";
+import { activeBTn } from "../../../Utility/ActiveBtn";
 
 const MainPage = () => {
   const [DisplayBlog, SetDisplayBlog] = useState([]);
-  const [blogs, SetBlogs] = useBlogs(SetDisplayBlog);
+  const [blogs, SetBlogs] = useBlogs();
 
   let start = 0;
+
   // useEffect(() => {
   //   fetch("blogs.JSON").then(async (response) => {
   //     try {
@@ -22,6 +24,10 @@ const MainPage = () => {
   //     }
   //   });
   // }, []);
+
+  useEffect(() => {
+    SetDisplayBlog(blogs.slice(0, 3));
+  }, [blogs]);
 
   const setBtn = (BtnsID, index) => {
     if (index === 1) {
@@ -40,23 +46,23 @@ const MainPage = () => {
     activeBTn(BtnsID, index - 1);
   };
 
-  function activeBTn(BtnsID, index) {
-    let header = document.getElementById(BtnsID);
+  // function activeBTn(BtnsID, index) {
+  //   let header = document.getElementById(BtnsID);
 
-    let Button_group = header.querySelectorAll(".btn");
-    // console.log(Button_group);
+  //   let Button_group = header.querySelectorAll(".btn");
+  //   // console.log(Button_group);
 
-    let Active_Btns = header.getElementsByClassName("active");
-    for (const Active_Btn of Active_Btns) {
-      // console.log("test2");
+  //   let Active_Btns = header.getElementsByClassName("active");
+  //   for (const Active_Btn of Active_Btns) {
+  //     // console.log("test2");
 
-      Active_Btn.className = Active_Btn.className.replace("active", "");
-    }
+  //     Active_Btn.className = Active_Btn.className.replace("active", "");
+  //   }
 
-    // console.log("test");
+  //   // console.log("test");
 
-    Button_group[index].className += " active";
-  }
+  //   Button_group[index].className += " active";
+  // }
 
   return (
     <>
@@ -66,6 +72,8 @@ const MainPage = () => {
           <BlogCard key={blog.id} blog={blog} />
         ))}
       </section>
+      <br></br>
+      <br></br>
       <section id="myDIV">
         <button className="btn active" onClick={() => setBtn("myDIV", 1)}>
           1
@@ -82,6 +90,9 @@ const MainPage = () => {
         <button className="btn" onClick={() => setBtn("myDIV", 5)}>
           5
         </button>
+
+        <br></br>
+        <br></br>
       </section>
     </>
   );

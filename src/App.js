@@ -18,13 +18,12 @@ function App() {
         <Route path="/services" element={<Services />} />
 
         <Route path="/blogs" element={<MainPage />} />
-        <Route path="/blogs/:blogId" element={<BlogDetail></BlogDetail>}></Route>
+        <Route path="/blog/:blogId" element={<BlogDetail />}></Route>
 
         <Route path="/About" element={<About />} />
 
         <Route path="*" element={<Error />} />
       </Routes>
-
     </div>
   );
 }
