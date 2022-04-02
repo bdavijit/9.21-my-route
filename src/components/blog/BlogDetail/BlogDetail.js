@@ -15,8 +15,6 @@ const BlogDetail = () => {
           <img src={data[blogId - 1].image} alt="" srcset="" />
         </div>
         <br></br>
-        <br></br>
-        <br></br>
         <div>
           <h1 className="title-Text m-5">{data[blogId - 1].title}</h1>
           <p>{data[blogId - 1].detail}</p>

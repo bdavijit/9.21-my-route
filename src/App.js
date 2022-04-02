@@ -4,6 +4,7 @@ import About from "./components/About/About";
 import BlogDetail from "./components/blog/BlogDetail/BlogDetail";
 import MainPage from "./components/blog/Mainpage/MainPage";
 import Error from "./components/Error/Error";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Services from "./components/services/Services";
@@ -24,6 +25,7 @@ function App() {
 
         <Route path="*" element={<Error />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
