@@ -1,14 +1,12 @@
-import React from 'react';
-import useBlogs from '../../Hooks/useBlogs';
+import React from "react";
+import CounterBox from "../CounterBox/CounterBox";
 
 const Home = () => {
-    const [blogs, SetBlogs] = useBlogs();
-    console.log(blogs);
-    return (
-        <div>
-            <h1>{blogs.length}</h1>
-        </div>
-    );
+  return (
+    <>
+      <CounterBox />
+    </>
+  );
 };
 
 export default Home;

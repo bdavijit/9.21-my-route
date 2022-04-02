@@ -12,7 +12,7 @@ const BlogDetail = () => {
     <>
       <section className="blogDetails">
         <div>
-          <img src={data[blogId - 1].image} alt="" srcset="" />
+          <img src={data[blogId - 1].image} alt=""  />
         </div>
         <br></br>
         <div>
